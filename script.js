@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
   const tabs = document.querySelectorAll("nav ul li a");
-  const subContents = document.querySelectorAll('.sub-content');
 
   tabs.forEach(tab => {
     tab.addEventListener("click", function(event) {
@@ -9,39 +8,36 @@ document.addEventListener("DOMContentLoaded", function() {
       const targetSection = document.getElementById(targetSectionId);
 
       if (targetSection) {
-        // Hide all sections except the target section
+        // Hide all sections
         const sections = document.querySelectorAll("section");
         sections.forEach(section => {
-          if (section !== targetSection) {
-            section.style.display = 'none';
-          }
+          section.style.display = "none";
         });
 
         // Show target section
-        targetSection.style.display = 'block';
-
-        // Hide all sub-contents
-        subContents.forEach(content => {
-          content.style.display = 'none';
-        });
+        targetSection.style.display = "block";
       }
     });
   });
+});
+
+function openTab(tabId) {
+  const subContents = document.querySelectorAll('.sub-content');
 
   subContents.forEach(content => {
     content.style.display = 'none';
   });
 
+  document.getElementById(tabId).style.display = 'block';
+
+  const tabs = document.querySelectorAll(".tab");
+
   tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const target = tab.getAttribute('data-tab');
-      const targetContent = document.getElementById(target);
-
-      tabs.forEach(tab => tab.classList.remove('active'));
-      subContents.forEach(content => content.style.display = 'none');
-
-      tab.classList.add('active');
-      targetContent.style.display = 'block';
-    });
+    tab.classList.remove("active");
+    tab.style.backgroundColor = "blue";
   });
-});
+
+  const selectedTab = document.querySelector(`[data-tab="${tabId}"]`);
+  selectedTab.classList.add("active");
+  selectedTab.style.backgroundColor = "green";
+}

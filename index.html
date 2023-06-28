@@ -1,54 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <link href="style.css" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alok Kulkarni - Resume</title>
   <style>
-    /* Add your CSS styles here */
-    body {
-      text-align: center;
-    }
+   .tabs {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
 
-    .tabs {
-      margin-top: 20px;
-    }
+.tab {
+  color: white;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: blue;
+}
 
-    .tab {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #f2f2f2;
-      color: #333;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 20px 20px 0 0;
-      transition: background-color 0.3s ease;
-    }
+.tab.active {
+  background-color: blue;
+}
 
-    .tab:hover {
-      background-color: #ddd;
-    }
-
-    .tab.active {
-      background-color: #007bff;
-      color: #fff;
-    }
-
-    .content {
-      display: none;
-      padding: 20px;
-      background-color: #f2f2f2;
-      border-radius: 0 0 20px 20px;
-    }
-
-    .content.active {
-      display: block;
-    }
   </style>
 </head>
-
 <body>
   <header>
     <h1>Alok Kulkarni</h1>
@@ -58,33 +35,34 @@
     <p><a href="linkedin.com/in/alok-kulkarni-154790b4">LinkedIn</a></p>
   </header>
 
-  <div class="tabs">
-    <div class="tab active" data-tab="summary">Summary</div>
-    <div class="tab" data-tab="experience">Experience</div>
-    <div class="tab" data-tab="education">Education</div>
-    <div class="tab" data-tab="skills">Skills</div>
-    <div class="tab" data-tab="honors">Honors & Awards</div>
-    <div class="tab" data-tab="projects">Projects</div>
-  </div>
+  <main>
+    <nav>
+      <ul>
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#honors">Honors & Awards</a></li>
+        <li><a href="portfolio.pdf" download>Portfolio</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+    </nav>
 
-  <section id="main-content">
-    <section id="summary" class="content active">
+    <section id="summary">
       <h2>Summary</h2>
       <p>Results-driven procurement analyst with a proven track record of assessing production needs, developing precise specifications, and ensuring timely material delivery. Proficient in inventory management, procurement reporting, and cross-functional collaboration. Strong communication and organizational skills. Committed to continuous professional development and driving organizational success.</p>
     </section>
 
-    <section id="experience" class="content">
+    <section id="experience">
       <h2>Experience</h2>
-    
       <div class="tabs">
-        <div class="tab" data-tab="procurement">Procurement</div>
-        <div class="tab" data-tab="customer-service">Customer Service</div>
-        <div class="tab" data-tab="manufacturing">Engineer</div>
+        <div class="tab active" onclick="openTab('procurement')">Procurement Analyst</div>
+        <div class="tab" onclick="openTab('customer-service')">Customer Service Representative</div>
+        <div class="tab" onclick="openTab('manufacturing')">Manufacturing Engineer</div>
       </div>
-    
       <div id="procurement" class="sub-content">
         <h3>Procurement Analyst</h3>
-        <p><strong>Weber Manufacturing Technologies Inc.</strong></p>
+        <p><strong>Weber Manufacturing Technologies Inc. Concord, Vaughan</strong></p>
         <p>Aug 2021 - Present (1 year 11 months)</p>
         <ul>
           <li>Managed procurement activities resulting in the acquisition of materials and equipment worth $13 million within a year.</li>
@@ -94,93 +72,121 @@
           <li>Generated regular and ad hoc procurement reports for management and stakeholders.</li>
         </ul>
       </div>
-    
       <div id="customer-service" class="sub-content">
         <h3>Customer Service Representative</h3>
-        <p><strong>Walmart Canada</strong></p>
-        <p>Oct 2020 - Aug 2021 (11 months)</p>
+        <p><strong>Walmart Canada, Toronto</strong></p>
+        <p>Oct 2018 - Jul 2021 (2 years 9 months)</p>
         <ul>
-          <li>Provided exceptional customer service by promptly addressing and resolving customer complaints, ensuring their satisfaction and maintaining a positive brand image.</li>
-          <li>Proactively engaged with customers, promoting and communicating information about new products and services, and assisting with their purchasing decisions.</li>
+          <li>Assisted customers in locating and selecting products, addressing inquiries, and resolving complaints.</li>
+          <li>Provided support and assistance to store associates in managing inventory and ensuring product availability.</li>
+          <li>Promoted sales through product knowledge and upselling techniques.</li>
+          <li>Maintained a high level of customer satisfaction through exceptional service delivery.</li>
         </ul>
       </div>
-    
       <div id="manufacturing" class="sub-content">
         <h3>Manufacturing Engineer</h3>
-        <p><strong>Forbes Marshall</strong></p>
-        <p>Dec 2015 - Jul 2019 (3 years 8 months)</p>
+        <p><strong>Forbes Marshall Pvt Ltd., Pune, India</strong></p>
+        <p>Dec 2015 - Jul 2019 (3 years 7 months)</p>
         <ul>
-          <li>Designed and optimized manufacturing processes to improve efficiency and reduce production costs.</li>
-          <li>Implemented Lean Manufacturing principles, resulting in a 20% reduction in waste and a 15% increase in productivity.</li>
-          <li>Collaborated with cross-functional teams to identify and resolve manufacturing issues, ensuring smooth operations.</li>
+          <li>Collaborated with cross-functional teams to identify and implement process improvements, resulting in a 15% increase in overall production efficiency.</li>
+          <li>Designed and optimized manufacturing processes, including assembly lines and workstations.</li>
+          <li>Conducted time studies and developed standardized work instructions to improve productivity and reduce waste.</li>
+          <li>Analyzed production data and implemented corrective actions to address bottlenecks and quality issues.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="tabs">
+        <div class="tab active" onclick="openTab('post-graduate')">Post Graduate Diploma</div>
+        <div class="tab" onclick="openTab('bachelors')">Bachelor's Degree</div>
+      </div>
+      
+      <div id="post-graduate" class="sub-content">
+                <div class="sub-tabs">
+          
+        </div>
+        
+        <div id="business-analytics" class="sub-sub-content">
+          <h4>Business Analytics</h4>
+          <p><strong>Seneca College, Toronto, ON</strong></p>
+          <p>2020 - 2021</p>
+          <ul>
+            <li>Studied the impact of Big Data and statistics on business scenarios at the domestic and international level.</li>
+            <li>Learned SAS, Tableau, and SAS Enterprise Miner to an intermediate level.</li>
+            <li>Applied learnings of predictive analytics, text-mining, and built analytical models on SAS Enterprise Miner for several college projects.</li>
+          </ul>
+        </div>
+        
+        <div id="supply-chain" class="sub-sub-content">
+          <h4>Supply Chain Management - Global</h4>
+          <p><strong>Conestoga College, Kitchener, ON</strong></p>
+          <p>2019 - 2020</p>
+          <ul>
+            <li>Determined the value-added and financial implications of supply chain decisions and design on overall business profitability, efficiency, and stakeholder satisfaction.</li>
+            <li>Contributed to the strategic planning and scheduling of material requirements, resource allocation, and inventory for efficient production and fulfillment of customer orders and returns.</li>
+            <li>Learned basics of Salesforce, ERP SAP, Crystal Reports.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div id="bachelors" class="sub-content">
+        <h3>Bachelor's Degree</h3>
+        <p><strong>University of Mumbai, Mumbai, India</strong></p>
+        <p>2011 - 2015</p>
+        <ul>
+          <li>Automobile Project: Manufactured and Tested an F1 race car for SUPRA SAEINDIA.</li>
+          <li>Final Year Project: Universal Test Rig for all bike engines.</li>
         </ul>
       </div>
     </section>
     
 
-    <section id="education" class="content">
-      <h2>Education</h2>
-      <h3>Post Graduate Diploma, Business Analytics</h3>
-      <p><strong>Seneca College</strong></p>
-      <p>2020 - 2021</p>
-      <ul>
-        <li>Studied the impact of Big Data and statistics on business scenarios at the domestic and international level.</li>
-        <li>Learned SAS, Tableau, and SAS Enterprise Miner to an intermediate level.</li>
-        <li>Applied learnings of predictive analytics, text-mining, and built analytical models on SAS Enterprise Miner for several college projects.</li>
-      </ul>
-
-      <h3>Post Graduate Diploma, Supply Chain Management- Global</h3>
-      <p><strong>Conestoga College</strong></p>
-      <p>2019 - 2020</p>
-      <ul>
-        <li>Determined the value-added and financial implications of supply chain decisions and design on overall business profitability, efficiency, and stakeholder satisfaction.</li>
-        <li>Contributed to the strategic planning and scheduling of material requirements, resource allocation, and inventory for efficient production and fulfillment of customer orders and returns.</li>
-        <li>Learned basics of Salesforce, ERP SAP, Crystal Reports.</li>
-      </ul>
-
-      <h3>Bachelor's degree, Mechanical Engineering</h3>
-      <p><strong>University of Mumbai</strong></p>
-      <p>2011 - 2015</p>
-      <ul>
-        <li>Automobile Project: Manufactured and Tested an F1 race car for SUPRA SAEINDIA.</li>
-        <li>Final Year Project: Universal Test Rig for all bike engines.</li>
-      </ul>
-    </section>
-
-    <section id="skills" class="content">
+    <section id="skills">
       <h2>Skills</h2>
-      <p>Eagerness to Learn • Technical Aptitude • Attention to Detail • Teamwork • Problem Solving • Time Management • Cross-Cultural Communication Skills • Microsoft Excel • Microsoft 365 • Excel (Advanced)</p>
+      <ul>
+        <li>Procurement <span class="emoji">💼</span></li>
+        <li>Inventory Management <span class="emoji">📊</span></li>
+        <li>Data Analysis <span class="emoji">📈</span></li>
+        <li>Supplier Relationship Management <span class="emoji">🤝</span></li>
+        <li>Cross-functional Collaboration <span class="emoji">🤝</span></li>
+        <li>Communication <span class="emoji">📢</span></li>
+        <li>Organizational Skills <span class="emoji">🗄️</span></li>
+      </ul>
     </section>
 
-    <section id="honors" class="content">
+    <section id="honors">
       <h2>Honors & Awards</h2>
-      <p>President's Honor List - Seneca College Apr 2021</p>
+      <ul>
+        <li>President's Honor List - Seneca College
+          Apr 2021</li>
+      </ul>
     </section>
 
-    <section id="projects" class="content">
+    <section id="projects">
       <h2>Projects</h2>
-      <p>Project 1</p>
-      <p>Project 2</p>
-      <p>Project 3</p>
+      <div class="tabs">
+        <div class="tab active" onclick="openTab('personal')">Personal</div>
+        <div class="tab" onclick="openTab('professional')">Professional</div>
+      </div>
+      <div id="personal" class="sub-content">
+        <h3>Personal Projects</h3>
+        <ul>
+          <li>Personal Project 1</li>
+          <li>Personal Project 2</li>
+        </ul>
+      </div>
+      <div id="professional" class="sub-content">
+        <h3>Professional Projects</h3>
+        <ul>
+          <li>Professional Project 1</li>
+          <li>Professional Project 2</li>
+        </ul>
+      </div>
     </section>
-  </section>
+  </main>
 
-  <script>
-    const tabs = document.querySelectorAll('.tab');
-    const contents = document.querySelectorAll('.content');
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const target = tab.getAttribute('data-tab');
-
-        tabs.forEach(tab => tab.classList.remove('active'));
-        contents.forEach(content => content.classList.remove('active'));
-
-        tab.classList.add('active');
-        document.getElementById(target).classList.add('active');
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
-
 </html>
