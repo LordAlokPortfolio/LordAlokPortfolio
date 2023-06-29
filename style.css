@@ -1,0 +1,34 @@
+/* styles.css */
+
+/* Reset default margins and paddings */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .social-icons {
+    margin-top: 20px;
+  }
+  
+  .social-icons a {
+    margin-right: 10px;
+  }
+  
+  .vision-statement {
+    text-align: center;
+    margin-top: 50px;
+    font-family: "Archivo Narrow", sans-serif;
+    font-size: 24px;
+    line-height: 1.4;
+  }
+  
+  .vision-statement p {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
